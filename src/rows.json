@@ -1,0 +1,65 @@
+[
+    {
+      "id": "1",
+      "index": "1",
+      "firstname": "Mohammed Ali",
+      "lastname": "Hussain Siddique",
+      "email": "ali722972@gmail.com",
+      "phone": "7735643841",
+      "married": "Yes"
+    },
+    {
+      "id": "2",
+      "index": "2",
+      "firstname": "Mohammed Mustafa",
+      "lastname": "Hussain Siddique",
+      "email": "mustafa@gmail.com",
+      "phone": "7735101132",
+      "address":"Santa Clara, California"
+    },
+    {
+      "id": "3",
+      "index": "3",
+      "firstname": "Abdul Rahman",
+      "lastname": "Hussain Siddique",
+      "phone": "8919788269",
+      "address":"Hyderabad, India",
+      "married": "No"
+    },
+    {
+      "id": "4",
+      "index": "4",
+      "firstname": "Abdul Mateen",
+      "lastname": "Hussain Siddique",
+      "email": "abdulmateen@gmail.com",
+      "address":"Hyderabad, India",
+      "married": "No"
+    },
+    {
+      "id": "5",
+      "index": "5",
+      "firstname": "Wajid",
+      "lastname": "Hussain Siddique",
+      "email": "wajid@gmail.com",
+      "phone": "7735643841",
+      "married": "Yes"
+    },
+    {
+      "id": "6",
+      "index": "6",
+      "firstname": "Sabiha",
+      "lastname": "Sultana",
+      "phone": "9951078214",
+      "address":"Hyderabad, India",
+      "married": "Yes"
+    },
+    {
+      "id": "7",
+      "index": "7",
+      "firstname": "Sharia",
+      "email": "shariahmed99@gmail.com",
+      "phone": "7736270660",
+      "address":"Irving, Texas",
+      "married": "Yes"
+    }
+  ]
