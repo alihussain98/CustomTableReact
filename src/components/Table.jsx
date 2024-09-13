@@ -5,7 +5,6 @@ import { useState } from "react";
 import "../index.css";
 
 const Table = ({ columns, rows }) => {
-  const [sortClickedAt, setSortClickedAt] = useState();
   const [rowsData, setRowsData] = useState(rows);
 
   const sortRows = (rowsData, columnName) => {
@@ -14,14 +13,13 @@ const Table = ({ columns, rows }) => {
       const bValue = b[columnName] || "";
       return aValue > bValue ? 1 : -1;
     });
-    setRowsData(rowsData);
+    setRowsData([...rowsData]);
     //if sort clicked again
     //rowsData.reverse();
     //setRowsData(rowsData);
   };
 
   const handleSortClicked = (columnName) => {
-    setSortClickedAt(columnName);
     sortRows(rowsData, columnName);
   };
 
