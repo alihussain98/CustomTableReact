@@ -4,9 +4,7 @@ import "../index.css";
 const TableColumn = (column, key) => {
   return (
     <>
-      <th>
-        <p>{column.column.columnName}</p>
-      </th>
+      <th>{/* <p>{column.column.displayName}</p> */}</th>
     </>
   );
 };

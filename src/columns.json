@@ -1,44 +1,44 @@
 [
     {
       "id": "1",
-      "columnName": "Index",
+      "displayName": "Index",
       "type": "Integer",
-      "rowValue": "index"
+      "columnName": "index"
     },
     {
       "id": "2",
-      "columnName": "First Name",
+      "displayName": "First Name",
       "type": "String",
-      "rowValue": "firstname"
+      "columnName": "firstname"
     },
     {
       "id": "3",
-      "columnName": "Last Name",
+      "displayName": "Last Name",
       "type": "String",
-      "rowValue": "lastname"
+      "columnName": "lastname"
     },
     {
       "id": "4",
-      "columnName": "Email",
+      "displayName": "Email",
       "type": "String",
-      "rowValue": "email"
+      "columnName": "email"
     },
     {
       "id": "5",
-      "columnName": "Phone",
+      "displayName": "Phone",
       "type": "Integer",
-      "rowValue": "phone"
+      "columnName": "phone"
     },
     {
       "id": "6",
-      "columnName": "Address",
+      "displayName": "Address",
       "type": "String",
-      "rowValue": "address"
+      "columnName": "address"
     },
     {
       "id": "7",
-      "columnName": "Married",
+      "displayName": "Married",
       "type": "String",
-      "rowValue": "married"
+      "columnName": "married"
     }
   ]

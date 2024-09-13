@@ -5,3 +5,32 @@ td {
   border-collapse: collapse;
   padding: 5px 20px;
 }
+
+table {
+  border: hidden;
+  overflow-y: scroll;
+  height: 500px;
+  display: block;
+}
+
+th {
+  background-color: lightblue;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 5%;
+}
+
+.buttonSort {
+  background-color: #04aa6d;
+  padding-top: 0px;
+  margin-bottom: 10px;
+}
+
+.buttonSort:hover {
+  background-color: lightgreen;
+}
+
+.columnTitlePTag {
+  margin-bottom: 10px;
+}
