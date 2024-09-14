@@ -7,20 +7,13 @@ import "../index.css";
 const Table = ({ columns, rows }) => {
   const [rowsData, setRowsData] = useState(rows);
 
-  const sortRows = (rowsData, columnName) => {
+  const sortRowsAsc = (rowsData, sortClickedAt) => {
     rowsData.sort((a, b) => {
-      const aValue = a[columnName] || "";
-      const bValue = b[columnName] || "";
+      const aValue = a[sortClickedAt] || "";
+      const bValue = b[sortClickedAt] || "";
       return aValue > bValue ? 1 : -1;
     });
     setRowsData([...rowsData]);
-    //if sort clicked again
-    //rowsData.reverse();
-    //setRowsData(rowsData);
-  };
-
-  const handleSortClicked = (columnName) => {
-    sortRows(rowsData, columnName);
   };
 
   return (
@@ -28,16 +21,12 @@ const Table = ({ columns, rows }) => {
       <tbody>
         <tr>
           {columns.map((column) => (
-            // <TableColumn column={column} key={column.id} />
-            <th key={column.id}>
-              <p className="columnTitlePTag">{column.displayName}</p>
-              <button
-                className="buttonSort"
-                onClick={() => handleSortClicked(column.columnName)}
-              >
-                sort
-              </button>
-            </th>
+            <TableColumn
+              column={column}
+              rows={rows}
+              sortRows={sortRowsAsc}
+              key={column.id}
+            />
           ))}
         </tr>
         {rowsData.map((row) => (
