@@ -24,6 +24,7 @@ th {
 .buttonSort {
   background-color: #04aa6d;
   padding-top: 0px;
+  margin-right: 10px;
   margin-bottom: 10px;
 }
 
@@ -33,4 +34,14 @@ th {
 
 .columnTitlePTag {
   margin-bottom: 10px;
+}
+
+.arrowUp {
+  height: 15px;
+  width: 15px;
+}
+
+.arrowDown {
+  height: 15px;
+  width: 15px;
 }

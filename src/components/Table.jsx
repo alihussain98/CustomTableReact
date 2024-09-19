@@ -4,14 +4,18 @@ import TableRow from "./TableRow.jsx";
 import { useState } from "react";
 import "../index.css";
 
-const Table = ({ columns, rows }) => {
+const Table = ({ columns, rows, sortDirection }) => {
   const [rowsData, setRowsData] = useState(rows);
 
-  const sortRowsAsc = (rowsData, sortClickedAt) => {
+  const sortRowsAsc = (rowsData, sortClickedAt, sortDirection) => {
     rowsData.sort((a, b) => {
       const aValue = a[sortClickedAt] || "";
       const bValue = b[sortClickedAt] || "";
-      return aValue > bValue ? 1 : -1;
+      if (sortDirection === "asc") {
+        return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+      } else {
+        return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
+      }
     });
     setRowsData([...rowsData]);
   };
