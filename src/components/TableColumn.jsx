@@ -1,12 +1,11 @@
 import React from "react";
 import "../index.css";
 import { useState, useEffect } from "react";
-import ArrowUp from "../assets/arrow_up.png";
-import ArrowDown from "../assets/arrow_down.png";
+import sortIcon from "../assets/sortIcon.png";
 
 const TableColumn = ({ column, sortRows, rows }) => {
   const [sortClickedAt, setSortClickedAt] = useState();
-  const [sortDirection, setSortDirection] = useState("");
+  const [sortDirection, setSortDirection] = useState(null);
 
   useEffect(() => {
     sortRows(rows, sortClickedAt, sortDirection);
@@ -14,7 +13,17 @@ const TableColumn = ({ column, sortRows, rows }) => {
 
   const handleSortClicked = (columnName, sortDirection) => {
     setSortClickedAt(columnName);
-    setSortDirection(sortDirection);
+
+    if (sortDirection === null) {
+      setSortDirection("asc");
+    }
+
+    if (sortDirection === "asc") {
+      setSortDirection("desc");
+    } else if (sortDirection === "desc") {
+      setSortDirection("asc");
+    }
+    
   };
 
   return (
@@ -23,15 +32,9 @@ const TableColumn = ({ column, sortRows, rows }) => {
         <p className="columnTitlePTag">{column.displayName}</p>
         <button
           className="buttonSort"
-          onClick={() => handleSortClicked(column.columnName, "asc")}
+          onClick={() => handleSortClicked(column.columnName, sortDirection)}
         >
-          <img className="arrowUp" src={ArrowUp} />
-        </button>
-        <button
-          className="buttonSort"
-          onClick={() => handleSortClicked(column.columnName, "desc")}
-        >
-          <img className="arrowDown" src={ArrowDown} />
+          <img className="sortIcon" src={sortIcon} />
         </button>
       </th>
     </>

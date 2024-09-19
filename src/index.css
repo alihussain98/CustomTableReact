@@ -36,12 +36,7 @@ th {
   margin-bottom: 10px;
 }
 
-.arrowUp {
-  height: 15px;
-  width: 15px;
-}
-
-.arrowDown {
+.sortIcon {
   height: 15px;
   width: 15px;
 }
