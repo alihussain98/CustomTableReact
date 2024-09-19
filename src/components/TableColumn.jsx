@@ -10,20 +10,16 @@ const TableColumn = ({ column, sortRows, rows }) => {
 
   useEffect(() => {
     sortRows(rows, sortClickedAt, sortDirection);
-    console.log("SortClickedAt: ", sortClickedAt);
-    console.log("SortDirection: ", sortDirection);
   }, [sortClickedAt, sortDirection]);
 
   const handleSortClicked = (columnName, sortDirection) => {
     setSortClickedAt(columnName);
     setSortDirection(sortDirection);
-    console.log("ColumnName: ", columnName);
-    console.log("Sort Direction: ", sortDirection);
   };
 
   return (
     <>
-      <th key={column.id}>
+      <th key={column.id} style={{ width: column.width }}>
         <p className="columnTitlePTag">{column.displayName}</p>
         <button
           className="buttonSort"
