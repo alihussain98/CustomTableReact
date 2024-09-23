@@ -4,48 +4,48 @@
       "displayName": "Index",
       "type": "Integer",
       "columnName": "index",
-      "width": "3%"
+      "width": 3
     },
     {
       "id": "2",
       "displayName": "First Name",
       "type": "String",
       "columnName": "firstname",
-      "width": "15%"
+      "width": 15
     },
     {
       "id": "3",
       "displayName": "Last Name",
       "type": "String",
       "columnName": "lastname",
-      "width": "15%"
+      "width": 15
     },
     {
       "id": "4",
       "displayName": "Email",
       "type": "String",
       "columnName": "email",
-      "width": "18%"
+      "width": 18
     },
     {
       "id": "5",
       "displayName": "Phone",
       "type": "Integer",
       "columnName": "phone",
-      "width": "15%"
+      "width": 18
     },
     {
       "id": "6",
       "displayName": "Address",
       "type": "String",
       "columnName": "address",
-      "width": "25%"
+      "width": 18
     },
     {
       "id": "7",
       "displayName": "Married",
       "type": "String",
       "columnName": "married",
-      "width": "3%"
+      "width": 3
     }
   ]

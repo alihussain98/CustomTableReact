@@ -8,24 +8,22 @@ td {
 
 table {
   border: hidden;
-  overflow-y: scroll;
-  height: 500px;
+  overflow-y: scroll; /*if rows are in thousands */
   display: block;
 }
 
 th {
   background-color: lightblue;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
-  width: 5%;
+  overflow: auto;
+  resize: horizontal;
 }
 
 .buttonSort {
   background-color: #04aa6d;
   padding-top: 0px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin: 0px 10px 10px 10px;
 }
 
 .buttonSort:hover {
@@ -39,4 +37,13 @@ th {
 .sortIcon {
   height: 15px;
   width: 15px;
+}
+
+.sizeButton {
+  height: 15px;
+  width: 15px;
+}
+
+.filterInput {
+  margin-bottom: 8px;
 }
