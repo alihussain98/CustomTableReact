@@ -6,9 +6,14 @@ import plusIcon from "../assets/plus.png";
 import useAppStore from "../store/appStore";
 
 const TableColumn = ({ column, sortRows, rows }) => {
-  const { updateFilterValue, updateFilterColumn } = useAppStore();
-  const [sortClickedAt, setSortClickedAt] = useState();
-  const [sortDirection, setSortDirection] = useState(null);
+  const {
+    sortClickedAt,
+    setSortClickedAt,
+    updateFilterValue,
+    updateFilterColumn,
+    sortDirection,
+    setSortDirection,
+  } = useAppStore();
   const [columnWidth, setColumnWidth] = useState(column.width);
 
   useEffect(() => {
@@ -22,8 +27,7 @@ const TableColumn = ({ column, sortRows, rows }) => {
 
     if (sortDirection === null) {
       setSortDirection("asc");
-    }
-    if (sortDirection === "asc") {
+    } else if (sortDirection === "asc") {
       setSortDirection("desc");
     } else if (sortDirection === "desc") {
       setSortDirection("asc");
@@ -36,10 +40,6 @@ const TableColumn = ({ column, sortRows, rows }) => {
 
   const handleIncreaseColumn = () => {
     setColumnWidth(columnWidth + 40);
-  };
-
-  const handleFilterButton = () => {
-    updateFilterButtonPressed();
   };
 
   return (

@@ -13,6 +13,18 @@ const useAppStore = create((set) => ({
       filterColumn: columnName,
     }));
   },
+  sortClickedAt: "",
+  setSortClickedAt: (columnName) => {
+    set(() => ({
+      sortClickedAt: columnName,
+    }));
+  },
+  sortDirection: null,
+  setSortDirection: (value) => {
+    set(() => ({
+      sortDirection: value,
+    }));
+  },
 }));
 
 export default useAppStore;
