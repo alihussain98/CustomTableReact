@@ -1,11 +1,10 @@
 import "../index.css";
 import { useState, useEffect } from "react";
 import sortIcon from "../assets/sortIcon.png";
-import minusIcon from "../assets/minus.png";
-import plusIcon from "../assets/plus.png";
+import filterIcon from "../assets/filter.png";
 import useAppStore from "../store/appStore";
 
-const TableColumn = ({ column, sortRows, rows }) => {
+const TableColumn = ({ column, rows }) => {
   const {
     sortClickedAt,
     setSortClickedAt,
@@ -13,60 +12,63 @@ const TableColumn = ({ column, sortRows, rows }) => {
     updateFilterColumn,
     sortDirection,
     setSortDirection,
+    setMenuPosition,
+    sortRows,
+    setRowsData,
+    setContextMenuColumn,
+    handleAscDesc,
+    filterButtonClicked,
+    setFilterButtonClicked,
   } = useAppStore();
   const [columnWidth, setColumnWidth] = useState(column.width);
 
   useEffect(() => {
-    sortRows(rows, sortClickedAt, sortDirection);
+    sortRows(rows, sortClickedAt, sortDirection, setRowsData);
   }, [sortClickedAt, sortDirection]);
 
-  useEffect(() => {}, [columnWidth]);
+  useEffect(() => {}, [filterButtonClicked]);
 
   const handleSortClicked = (columnName, sortDirection) => {
     setSortClickedAt(columnName);
-
-    if (sortDirection === null) {
-      setSortDirection("asc");
-    } else if (sortDirection === "asc") {
-      setSortDirection("desc");
-    } else if (sortDirection === "desc") {
-      setSortDirection("asc");
-    }
+    handleAscDesc(sortDirection, setSortDirection);
   };
 
-  const handleDecreaseColumn = () => {
-    setColumnWidth(columnWidth - 40);
-  };
-
-  const handleIncreaseColumn = () => {
-    setColumnWidth(columnWidth + 40);
+  const handleFilterClick = () => {
+    setFilterButtonClicked();
   };
 
   return (
     <>
-      <th key={column.id} style={{ width: `${columnWidth}px` }}>
+      <th
+        key={column.id}
+        style={{ width: `${columnWidth}px` }}
+        onContextMenu={(e) => {
+          e.preventDefault();
+          setMenuPosition({ left: e.clientX + 8, top: e.clientY + 8 });
+          setContextMenuColumn(column.columnName);
+        }}
+      >
         <p className="columnTitlePTag">{column.displayName}</p>
-        <input
-          className="filterInput"
-          type="text"
-          placeholder="Filter"
-          onChange={(e) => {
-            updateFilterValue(e.target.value);
-            updateFilterColumn(column.columnName);
-          }}
-        />
+        {filterButtonClicked && (
+          <input
+            className="filterInput"
+            type="text"
+            placeholder="Filter"
+            onChange={(e) => {
+              updateFilterValue(e.target.value);
+              updateFilterColumn(column.columnName);
+            }}
+          />
+        )}
         <div>
-          <button onClick={handleDecreaseColumn}>
-            <img className="sizeButton" src={minusIcon} />
-          </button>
           <button
-            className="buttonSort"
+            className="columnButton"
             onClick={() => handleSortClicked(column.columnName, sortDirection)}
           >
-            <img className="sortIcon" src={sortIcon} />
+            <img className="columnIcon" src={sortIcon} />
           </button>
-          <button onClick={handleIncreaseColumn}>
-            <img className="sizeButton" src={plusIcon} />
+          <button className="columnButton" onClick={handleFilterClick}>
+            <img className="columnIcon" src={filterIcon} />
           </button>
         </div>
       </th>

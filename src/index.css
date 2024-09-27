@@ -13,30 +13,34 @@ table {
 }
 
 th {
-  background-color: lightblue;
+  background-color: #384b70;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: auto;
   resize: horizontal;
 }
 
-.buttonSort {
-  background-color: #04aa6d;
+.columnButton {
+  background-color: #507687;
   padding-top: 0px;
   margin: 0px 10px 10px 10px;
 }
 
-.buttonSort:hover {
-  background-color: lightgreen;
+.columnButton:hover {
+  background-color: #b8001f;
 }
 
 .columnTitlePTag {
   margin-bottom: 10px;
 }
 
-.sortIcon {
-  height: 15px;
-  width: 15px;
+.columnIcon {
+  height: 12px;
+  width: 12px;
+  padding-top: 4px;
+  filter: invert(1);
 }
 
 .sizeButton {
@@ -46,4 +50,24 @@ th {
 
 .filterInput {
   margin-bottom: 8px;
+}
+
+.contextMenu {
+  background-color: #fcfaee;
+  position: absolute;
+  border: 1px solid;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 12px black;
+}
+
+.contextMenu div {
+  padding: 2px 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.contextMenu div:hover {
+  background-color: #b8001f;
+  color: white;
 }
