@@ -13,9 +13,10 @@ const ContextMenu = () => {
     handleAscDesc,
     contextSortDirection,
     setContextSortDirection,
+    filterButtonClicked,
+    setFilterButtonClicked,
   } = useAppStore();
-  
-  useEffect(() => {}, []);
+
   if (!menuPosition.left) return;
 
   const handleSortClicked = () => {
@@ -27,7 +28,13 @@ const ContextMenu = () => {
   return (
     <div className="contextMenu" style={menuPosition}>
       <div onClick={handleSortClicked}>Sort (ASC/ DESC)</div>
-      <div>Filter</div>
+      <div
+        onClick={() => {
+          setFilterButtonClicked(!filterButtonClicked);
+        }}
+      >
+        Filter
+      </div>
     </div>
   );
 };

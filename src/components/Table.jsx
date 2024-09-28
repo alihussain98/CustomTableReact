@@ -6,7 +6,7 @@ import useAppStore from "../store/appStore.js";
 
 import ContextMenu from "./ContextMenu.jsx";
 
-const Table = ({ columns, rows, sortDirection }) => {
+const Table = ({ columns, rows }) => {
   const { rowsData, filterValue, filterColumn, menuPosition, setMenuPosition } =
     useAppStore();
 
