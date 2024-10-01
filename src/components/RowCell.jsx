@@ -30,6 +30,11 @@ const RowCell = ({ cellID, column, index, row }) => {
   //   setEditRowID(cellID);
   //   setEditButtonClicked(true);
   // };
+  
+  const handleDoubleClick = () => {
+    setEditRowID(cellID);
+    setEditButtonClicked(true);
+  };
 
   return (
     <td
@@ -40,6 +45,7 @@ const RowCell = ({ cellID, column, index, row }) => {
         setRowMenuPosition({ left: e.clientX + 4, top: e.clientY + 4 });
         setEditRowID(cellID);
       }}
+      onDoubleClick={handleDoubleClick}
     >
       <div className="rowContainer">
         <div>
