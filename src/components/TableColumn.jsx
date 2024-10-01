@@ -20,6 +20,7 @@ const TableColumn = ({ column, rows }) => {
     filterButtonClicked,
     setFilterButtonClicked,
   } = useAppStore();
+  
   const [columnWidth, setColumnWidth] = useState(column.width);
 
   useEffect(() => {

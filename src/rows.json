@@ -1,6 +1,6 @@
 [
     {
-      "id": "1",
+      "id": 1,
       "index": "1",
       "firstname": "Mohammed Ali",
       "lastname": "Hussain Siddique",
@@ -9,7 +9,7 @@
       "married": "Yes"
     },
     {
-      "id": "2",
+      "id": 2,
       "index": "2",
       "firstname": "Mohammed Mustafa",
       "lastname": "Hussain Siddique",
@@ -18,7 +18,7 @@
       "address":"Santa Clara, California"
     },
     {
-      "id": "3",
+      "id": 3,
       "index": "3",
       "firstname": "Abdul Rahman",
       "lastname": "Hussain Siddique",
@@ -27,7 +27,7 @@
       "married": "No"
     },
     {
-      "id": "4",
+      "id": 4,
       "index": "4",
       "firstname": "Abdul Mateen",
       "lastname": "Hussain Siddique",
@@ -36,7 +36,7 @@
       "married": "No"
     },
     {
-      "id": "5",
+      "id": 5,
       "index": "5",
       "firstname": "Wajid",
       "lastname": "Hussain Siddique",
@@ -45,7 +45,7 @@
       "married": "Yes"
     },
     {
-      "id": "6",
+      "id": 6,
       "index": "6",
       "firstname": "Sabiha",
       "lastname": "Sultana",
@@ -54,7 +54,7 @@
       "married": "Yes"
     },
     {
-      "id": "7",
+      "id": 7,
       "index": "7",
       "firstname": "Sharia",
       "email": "shariahmed99@gmail.com",

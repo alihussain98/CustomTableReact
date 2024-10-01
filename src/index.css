@@ -3,7 +3,7 @@ th,
 td {
   border: 1px solid black;
   border-collapse: collapse;
-  padding: 5px 20px;
+  padding: 3px 15px;
 }
 
 table {
@@ -26,6 +26,7 @@ th {
   background-color: #507687;
   padding-top: 0px;
   margin: 0px 10px 10px 10px;
+  border-radius: 30%;
 }
 
 .columnButton:hover {
@@ -34,6 +35,12 @@ th {
 
 .columnTitlePTag {
   margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.rowDataStyle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
 }
 
 .columnIcon {
@@ -70,4 +77,29 @@ th {
 .contextMenu div:hover {
   background-color: #b8001f;
   color: white;
+}
+
+.editIcon {
+  width: 10px;
+  height: 10px;
+  filter: invert(1);
+}
+
+.editButton {
+  margin-left: 5px;
+  background-color: #b8001f;
+  border-radius: 20%;
+  border: none;
+  padding: 3px 6px;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.editForm {
+  display: flex;
+  flex: 1;
 }

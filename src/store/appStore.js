@@ -76,6 +76,18 @@ const useAppStore = create((set) => ({
       filterButtonClicked: !state.filterButtonClicked,
     }));
   },
+  editButtonClicked: false,
+  setEditButtonClicked: (value) => {
+    set(() => ({
+      editButtonClicked: value,
+    }));
+  },
+  editRowID: "",
+  setEditRowID: (value) => {
+    set(() => ({
+      editRowID: value,
+    }));
+  },
 }));
 
 export default useAppStore;
