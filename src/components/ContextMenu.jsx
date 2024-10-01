@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import "../index.css";
 import useAppStore from "../store/appStore";
 

@@ -37,6 +37,12 @@ const useAppStore = create((set) => ({
       menuPosition: { left: left, top: top },
     }));
   },
+  rowMenuPosition: { left: 0, top: 0 },
+  setRowMenuPosition: ({ left, top }) => {
+    set(() => ({
+      rowMenuPosition: { left: left, top: top },
+    }));
+  },
   sortRows: (rowsData, sortClickedAt, sortDirection, setRowsData) => {
     rowsData.sort((a, b) => {
       const aValue = a[sortClickedAt] || "";
@@ -86,6 +92,12 @@ const useAppStore = create((set) => ({
   setEditRowID: (value) => {
     set(() => ({
       editRowID: value,
+    }));
+  },
+  cellID: null,
+  setCellID: (value) => {
+    set(() => ({
+      cellID: value,
     }));
   },
 }));

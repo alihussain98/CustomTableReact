@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
+import "../index.css";
 import TableColumn from "./TableColumn.jsx";
 import TableRow from "./TableRow.jsx";
-import "../index.css";
 import useAppStore from "../store/appStore.js";
-
 import ContextMenu from "./ContextMenu.jsx";
+import RowContextMenu from "./rowContextMenu.jsx";
 
 const Table = ({ columns, rows }) => {
-  const { rowsData, filterValue, filterColumn, menuPosition, setMenuPosition } =
-    useAppStore();
+  const {
+    rowsData,
+    filterValue,
+    filterColumn,
+    setRowMenuPosition,
+    setMenuPosition,
+  } = useAppStore();
 
   // Filter rows based on filterValue and filterColumn
   let filteredRows = rowsData.filter((row) =>
@@ -23,10 +27,12 @@ const Table = ({ columns, rows }) => {
 
   return (
     <>
-      <ContextMenu menuPosition={menuPosition} />
+      <RowContextMenu />
+      <ContextMenu />
       <table
         onClick={() => {
           setMenuPosition({ left: 0, top: 0 });
+          setRowMenuPosition({ left: 0, top: 0 });
         }}
       >
         <tbody>

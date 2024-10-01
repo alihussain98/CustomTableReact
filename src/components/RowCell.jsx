@@ -7,20 +7,29 @@ import "../index.css";
 const RowCell = ({ cellID, column, index, row }) => {
   const [updatedRowData, setUpdatedRowData] = useState(row[column.columnName]);
 
-  const { editButtonClicked, setEditButtonClicked, editRowID, setEditRowID } =
-    useAppStore();
+  const {
+    editButtonClicked,
+    setEditButtonClicked,
+    editRowID,
+    setEditRowID,
+    setRowMenuPosition,
+    rowMenuPosition,
+    setCellID,
+  } = useAppStore();
 
-  useEffect(() => {}, [editButtonClicked, editRowID]);
+  useEffect(() => {
+    setCellID(editRowID);
+  }, [editButtonClicked, editRowID]);
 
   const submitEdit = (e) => {
     e.preventDefault();
     setEditButtonClicked(false);
   };
 
-  const handleCellEdit = () => {
-    setEditRowID(cellID);
-    setEditButtonClicked(true);
-  };
+  // const handleCellEdit = () => {
+  //   setEditRowID(cellID);
+  //   setEditButtonClicked(true);
+  // };
 
   return (
     <td
@@ -28,7 +37,8 @@ const RowCell = ({ cellID, column, index, row }) => {
       key={index}
       onContextMenu={(e) => {
         e.preventDefault();
-        console.log("Clicked");
+        setRowMenuPosition({ left: e.clientX + 4, top: e.clientY + 4 });
+        setEditRowID(cellID);
       }}
     >
       <div className="rowContainer">
@@ -51,14 +61,12 @@ const RowCell = ({ cellID, column, index, row }) => {
           )}
         </div>
         <div>
-          {row[column.columnName] === undefined ||
-          column.columnName === "index" ? (
-            ""
-          ) : (
-            <button className="editButton" onClick={() => handleCellEdit()}>
-              <img className="editIcon" src={editIcon} />
-            </button>
-          )}
+          {row[column.columnName] === undefined || column.columnName === "index"
+            ? ""
+            : // <button className="editButton" onClick={() => handleCellEdit()}>
+              //   <img className="editIcon" src={editIcon} />
+              // </button>
+              ""}
         </div>
       </div>
     </td>
