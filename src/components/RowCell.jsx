@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import useAppStore from "../store/appStore";
-import editIcon from "../assets/edit.png";
 import checkMarkIcon from "../assets/checkmark.png";
 import "../index.css";
 
@@ -26,11 +25,6 @@ const RowCell = ({ cellID, column, index, row }) => {
     setEditButtonClicked(false);
   };
 
-  // const handleCellEdit = () => {
-  //   setEditRowID(cellID);
-  //   setEditButtonClicked(true);
-  // };
-  
   const handleDoubleClick = () => {
     setEditRowID(cellID);
     setEditButtonClicked(true);
@@ -69,10 +63,7 @@ const RowCell = ({ cellID, column, index, row }) => {
         <div>
           {row[column.columnName] === undefined || column.columnName === "index"
             ? ""
-            : // <button className="editButton" onClick={() => handleCellEdit()}>
-              //   <img className="editIcon" src={editIcon} />
-              // </button>
-              ""}
+            : ""}
         </div>
       </div>
     </td>

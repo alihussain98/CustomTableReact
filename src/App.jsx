@@ -1,18 +1,47 @@
-import React from "react";
+import { useEffect } from "react";
 import Table from "./components/Table";
-import columns from "./columns.json";
-import rows from "./rows.json";
 import useAppStore from "./store/appStore";
 
 const App = () => {
-  const { setMenuPosition } = useAppStore();
+  const {
+    setMenuPosition,
+    rowsData,
+    setRowsData,
+    columnsData,
+    setColumnsData,
+  } = useAppStore();
+
+  useEffect(() => {
+    const fetchRows = async () => {
+      try {
+        const res = await fetch("http://localhost:8000/rows");
+        const data = await res.json();
+        setRowsData(data);
+      } catch (error) {
+        console.error("Error in Fetching Rows: ", error.message);
+      }
+    };
+    const fetchColumns = async () => {
+      try {
+        const res = await fetch("http://localhost:8000/columns");
+        const data = await res.json();
+        setColumnsData(data);
+      } catch (error) {
+        console.error("Error in Fetching Columns: ", error.message);
+      }
+    };
+
+    fetchRows();
+    fetchColumns();
+  }, []);
+
   return (
     <div
       onClick={() => {
         setMenuPosition({ left: 0, top: 0 });
       }}
     >
-      <Table columns={columns} rows={rows} />
+      <Table columns={columnsData} rows={rowsData} />
     </div>
   );
 };

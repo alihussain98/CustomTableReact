@@ -1,11 +1,13 @@
 import { create } from "zustand";
-import columns from "../columns.json";
-import rows from "../rows.json";
 
 const useAppStore = create((set) => ({
-  rowsData: rows,
+  rowsData: [],
   setRowsData: (newRows) => {
     set({ rowsData: newRows });
+  },
+  columnsData: [],
+  setColumnsData: (newColumns) => {
+    set({ columnsData: newColumns });
   },
   filterValue: "",
   updateFilterValue: (value) => {
