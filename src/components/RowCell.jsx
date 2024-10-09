@@ -9,25 +9,31 @@ const RowCell = ({ cellID, column, index, row }) => {
   const {
     editButtonClicked,
     setEditButtonClicked,
-    editRowID,
-    setEditRowID,
+    editRowCellID,
+    setEditRowCellID,
     setRowMenuPosition,
-    rowMenuPosition,
     setCellID,
+    setUpdateRowCellData,
   } = useAppStore();
 
   useEffect(() => {
-    setCellID(editRowID);
-  }, [editButtonClicked, editRowID]);
+    setCellID(editRowCellID);
+  }, [editButtonClicked, editRowCellID]);
 
-  const submitEdit = (e) => {
+  const submitEdit = async (e) => {
     e.preventDefault();
     setEditButtonClicked(false);
+
+    await setUpdateRowCellData(row.id, {
+      ...row,
+      [column.columnName]: updatedRowData,
+    });
   };
 
   const handleDoubleClick = () => {
-    setEditRowID(cellID);
+    setEditRowCellID(cellID);
     setEditButtonClicked(true);
+    console.log(row.id);
   };
 
   return (
@@ -37,13 +43,13 @@ const RowCell = ({ cellID, column, index, row }) => {
       onContextMenu={(e) => {
         e.preventDefault();
         setRowMenuPosition({ left: e.clientX + 4, top: e.clientY + 4 });
-        setEditRowID(cellID);
+        setEditRowCellID(cellID);
       }}
       onDoubleClick={handleDoubleClick}
     >
       <div className="rowContainer">
         <div>
-          {editRowID === cellID && editButtonClicked ? (
+          {editRowCellID === cellID && editButtonClicked ? (
             <>
               <form className="editForm" onSubmit={submitEdit}>
                 <input
@@ -59,11 +65,6 @@ const RowCell = ({ cellID, column, index, row }) => {
           ) : (
             <div>{updatedRowData}</div>
           )}
-        </div>
-        <div>
-          {row[column.columnName] === undefined || column.columnName === "index"
-            ? ""
-            : ""}
         </div>
       </div>
     </td>

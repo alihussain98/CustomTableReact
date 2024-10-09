@@ -1,5 +1,5 @@
 import "../index.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import sortIcon from "../assets/sortIcon.png";
 import filterIcon from "../assets/filter.png";
 import useAppStore from "../store/appStore";
@@ -20,8 +20,6 @@ const TableColumn = ({ column, rows }) => {
     filterButtonClicked,
     setFilterButtonClicked,
   } = useAppStore();
-  
-  const [columnWidth, setColumnWidth] = useState(column.width);
 
   useEffect(() => {
     sortRows(rows, sortClickedAt, sortDirection, setRowsData);
@@ -42,7 +40,6 @@ const TableColumn = ({ column, rows }) => {
     <>
       <th
         key={column.id}
-        style={{ width: `${columnWidth}px` }}
         onContextMenu={(e) => {
           e.preventDefault();
           setMenuPosition({ left: e.clientX + 8, top: e.clientY + 8 });

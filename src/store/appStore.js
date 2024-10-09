@@ -90,10 +90,10 @@ const useAppStore = create((set) => ({
       editButtonClicked: value,
     }));
   },
-  editRowID: "",
-  setEditRowID: (value) => {
+  editRowCellID: "",
+  setEditRowCellID: (value) => {
     set(() => ({
-      editRowID: value,
+      editRowCellID: value,
     }));
   },
   cellID: null,
@@ -101,6 +101,30 @@ const useAppStore = create((set) => ({
     set(() => ({
       cellID: value,
     }));
+  },
+  setUpdateRowCellData: async (rowId, updatedRowData) => {
+    try {
+      set((state) => {
+        const updatedRows = state.rowsData.map((row) =>
+          row.id === rowId ? updatedRowData : row
+        );
+        return { rowsData: updatedRows };
+      });
+
+      const res = await fetch(`http://localhost:8000/rows/${rowId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedRowData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to update the row on the server.");
+      }
+    } catch (error) {
+      console.error("Error updating the row: ", error.message);
+    }
   },
 }));
 
